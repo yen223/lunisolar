@@ -1,4 +1,4 @@
-from constants import zodiac
+from constants import zodiac, elements
 from datetime import date as solar_date
 from exceptions import ValueError
 
@@ -14,7 +14,7 @@ class LunarDate():
         self.lunar_day = lunar_day
 
         self.solar_date = solar_date(lunar_year, lunar_month, lunar_day)
-
+        self._stem = self.get_stem(self.lunar_year)
         self._branch = self.get_branch(self.lunar_year)
 
     def __str__(self):
@@ -28,6 +28,9 @@ class LunarDate():
     def get_branch(lunar_year):
         return (lunar_year - 4) % 12
         
+    @staticmethod
+    def get_stem(lunar_year):
+        return (lunar_year - 4) % 10
 
     @staticmethod
     def to_solar_date(lunar_year, lunar_month, lunar_day):
@@ -37,14 +40,12 @@ class LunarDate():
     def zodiac(self):
         return zodiac[self._branch]
 
+    @property
+    def element(self):
+        return elements[self._stem]
+
 def ordinal(value):
     str_val = str(value)
-    if str_val[-1] == '1':
-        ordval = 'st'
-    elif str_val[-1] == '2':
-        ordval = 'nd'
-    elif str_val[-1] == '3':
-        ordval = 'rd'
-    else:
-        ordval = 'th'
-    return "{0}{1}".format(str_val, ordval)
+    ordvals = {'1':'st', '2':'nd', '3':'rd'}
+    suffix = ordvals.get(str_val[-1], 'th')
+    return "{0}{1}".format(str_val, suffix)

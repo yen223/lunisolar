@@ -1,3 +1,38 @@
+heavenly_stems = ['jia',
+                  'yi',
+                  'bing',
+                  'ding',
+                  'wu',
+                  'ji',
+                  'geng',
+                  'xin',
+                  'ren', 
+                  'gui']
+
+elements = ['wood',
+            'wood',
+            'fire',
+            'fire',
+            'earth',
+            'earth',
+            'metal',
+            'metal',
+            'water',
+            'water']
+
+earthly_branches = ['zi',
+                    'chou',
+                    'yin',
+                    'mao',
+                    'chen',
+                    'si',
+                    'wu',
+                    'wei',
+                    'shen',
+                    'you',
+                    'xu',
+                    'hai']
+
 zodiac = [ 'rat', 
            'ox', 
            'tiger', 
@@ -10,28 +45,3 @@ zodiac = [ 'rat',
            'rooster',
            'dog',
            'pig']
-
-heavenly_stems = ['jia',
-                  'yi',
-                  'bing',
-                  'ding',
-                  'wu',
-                  'ji',
-                  'geng',
-                  'xin',
-                  'ren', 
-                  'gui']
-
-earthly_branches = ['zi',
-                    'chou',
-                    'yin',
-                    'mao',
-                    'chen',
-                    'si',
-                    'wu',
-                    'wei',
-                    'shen',
-                    'you']
-
-
-
