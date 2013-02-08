@@ -15,8 +15,8 @@ elements = ['wood',
             'fire',
             'earth',
             'earth',
-            'metal',
-            'metal',
+            'gold',
+            'gold',
             'water',
             'water']
 
