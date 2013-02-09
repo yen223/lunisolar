@@ -1,6 +1,6 @@
 from pycalcal.wrappers import chinese_from_gregorian, \
                            gregorian_from_chinese, \
-                           chinese_date_rec, \
+                           chinese_date as CDate, \
                            get_branch, \
                            get_stem, \
                            is_valid_chinese_date
@@ -59,7 +59,7 @@ class ChineseDate():
         return self.gregorian_date.toordinal()
 
     def timetuple():
-        return self.gregorian_date.timetuple()
+        pass
 
     @property
     def element(self):
@@ -85,7 +85,7 @@ class ChineseDate():
 
     @classmethod
     def from_chinese(cls, chinese_year, chinese_month, chinese_day, is_leap):
-        cdate = chinese_date_rec(chinese_year, chinese_month, chinese_day, is_leap)
+        cdate = CDate(chinese_year, chinese_month, chinese_day, is_leap)
         gdate = gregorian_from_chinese(cdate)
         return cls(gdate, cdate)
 

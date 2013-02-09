@@ -4,12 +4,12 @@ from pycalcal import chinese_from_fixed, fixed_from_chinese, \
 from datetime import date
 from collections import namedtuple
 
-chinese_date_rec = namedtuple('chinese_date_rec', 'year, month, day, is_leap_month')
+chinese_date= namedtuple('chinese_date', 'year, month, day, is_leap_month')
 
 def _tuple_from_pcc_chinese(pcc_cdate):
     cycle, offset, month, leap, day = pcc_cdate
     year = cycle*60 + offset - 2697
-    return chinese_date_rec(year, month, day, leap)
+    return chinese_date(year, month, day, leap)
 
 def _pcc_chinese_from_tuple(cdate):
     year, month, day, leap = cdate
