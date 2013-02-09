@@ -1,16 +1,20 @@
-from pycalcal.tools import chinese_from_gregorian, \
+from pycalcal.wrappers import chinese_from_gregorian, \
                            gregorian_from_chinese, \
                            chinese_date_rec, \
                            get_branch, \
-                           get_stem
+                           get_stem, \
+                           is_valid_chinese_date
+
 from constants import zodiac, elements, heavenly_stems, earthly_branches
-from exceptions import ValueError
+from exceptions import ValueError, TypeError
 from datetime import date
 
 class ChineseDate():
     def __init__(self, gregorian_date, chinese_date):
         if not (gregorian_date and chinese_date):
             raise ValueError
+        if not is_valid_chinese_date(chinese_date):
+            raise ValueError, "Chinese date is not valid."
 
         self.gregorian_date = gregorian_date
         self.chinese_date = chinese_date
@@ -19,6 +23,43 @@ class ChineseDate():
 
     def __repr__(self):
         return repr(self.chinese_date)
+
+    def __eq__(self, other):
+        return self.toordinal() == other.toordinal()
+
+    def __ne__(self, other):
+        return self.toordinal() != other.toordinal()
+
+    def __lt__(self, other):
+        return self.toordinal() < other.toordinal()
+
+    def __gt__(self, other):
+        return self.toordinal() > other.toordinal()
+
+    def __le__(self, other):
+        return self.toordinal() <= other.toordinal()
+
+    def __ge__(self, other):
+        return self.toordinal() >= other.toordinal()
+
+    def __add__(self, other):
+        new_date = self.gregorian_date + other
+        cdate = chinese_from_gregorian(new_date)
+        return ChineseDate(new_date, cdate)
+    
+    __radd__ = __add__
+
+    def __sub__(self, other):
+        return self.gregorian_date - other
+
+    def __rsub__(self, other):
+        return other - self.gregorian_date
+
+    def toordinal(self):
+        return self.gregorian_date.toordinal()
+
+    def timetuple():
+        return self.gregorian_date.timetuple()
 
     @property
     def element(self):

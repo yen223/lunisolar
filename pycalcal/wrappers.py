@@ -42,3 +42,8 @@ def get_branch(cdate):
 def get_stem(cdate):
     return (cdate.year - 4) % 10
 
+def is_valid_chinese_date(cdate):
+    pcc_cdate = _pcc_chinese_from_tuple(cdate)
+    cdate2 = chinese_from_fixed(fixed_from_chinese(pcc_cdate))
+    return cdate2 == pcc_cdate
+
