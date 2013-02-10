@@ -49,9 +49,9 @@ Retrieving properties of the Chinese calendar:
     >>> moon_landing = ChineseDate.from_gregorian(1969, 7, 20)
     >>> moon_landing.is_leap_month
     >>> moon_landing.zodiac
-    snake
+    rooster
     >>> moon_landing.element
-    water
+    earth
     >>> moon_landing.heavenly_stem
     ji
     >>> moon_landing.earthly_branch
