@@ -31,6 +31,13 @@ class LunarDateTestCases(unittest.TestCase):
         self.assertEqual(july_fourth_cdate.day, 12)
         self.assertEqual(july_fourth_cdate.is_leap_month, True)
 
+    def test_properties(self):
+        moon_landing = self.moon_landing
+        self.assertEqual(moon_landing.year, 1969)
+        self.assertEqual(moon_landing.month, 6)
+        self.assertEqual(moon_landing.day, 7)
+        self.assertEqual(moon_landing.is_leap_month, False)
+
     def test_heavenly_stem(self):
         self.assertEqual(self.moon_landing._stem, 5)
         self.assertEqual(self.july_fourth._stem, 5)

@@ -42,6 +42,14 @@ The ChineseDate class shares the same constructors as datetime.date:
 Retrieving properties of the Chinese calendar:
 
     >>> moon_landing = ChineseDate.from_gregorian(1969, 7, 20)
+    >>> moon_landing.year
+    1969
+    >>> moon_landing.month
+    6
+    >>> moon_landing.day
+    7
+    >>> moon_landing.is_leap_month
+    False
     >>> moon_landing.zodiac
     rooster
     >>> moon_landing.element

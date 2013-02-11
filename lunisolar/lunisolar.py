@@ -83,6 +83,22 @@ class ChineseDate():
         return self.gregorian_date.timetuple()
 
     @property
+    def year(self):
+        return self.chinese_date.year
+
+    @property
+    def month(self):
+        return self.chinese_date.month
+
+    @property
+    def day(self):
+        return self.chinese_date.day
+
+    @property
+    def is_leap_month(self):
+        return self.chinese_date.is_leap_month
+
+    @property
     def element(self):
         '''
         Returns the element of the year.
