@@ -6,7 +6,7 @@ setup(
         install_requires=requires,
         version = "0.1.0",
         description = "A library to handle the Chinese calendar",
-        long_description=open('README.md').read(),
+        long_description=open('README.rst').read(),
         license=open('LICENSE').read(),
         author = "Lee Wei Yen",
         author_email = "lee@weiyen.me",
