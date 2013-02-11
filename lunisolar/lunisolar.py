@@ -10,6 +10,20 @@ from exceptions import ValueError, TypeError
 from datetime import date
 
 class ChineseDate():
+    '''
+    The most important class in this package. ChineseDate contains both the Chinese
+    and Gregorian representation of a date. 
+
+    ChineseDate should not be directly initialized. ChineseDate should be 
+    initialized from one of the following:
+
+     - ChineseDate.from_gregorian(year, month, day)
+     - ChineseDate.from_chinese(year, month, day, is_leap_month)
+     - ChineseDate.today()
+     - ChineseDate.fromtimestamp()
+     - ChineseDate.fromordinal()
+    '''
+
     def __init__(self, gregorian_date, chinese_date):
         if not (gregorian_date and chinese_date):
             raise ValueError
@@ -56,36 +70,74 @@ class ChineseDate():
         return other - self.gregorian_date
 
     def toordinal(self):
+        '''
+        Returns the ordinal version of the date. Refer to datetime.date.ordinal for
+        more information.
+        '''
         return self.gregorian_date.toordinal()
 
-    def timetuple():
-        pass
+    def timetuple(self):
+        '''
+        Returns the timetuple of the Gregorian year.
+        '''
+        return self.gregorian_date.timetuple()
 
     @property
     def element(self):
+        '''
+        Returns the element of the year.
+        '''
         return elements[self._stem]
 
     @property
     def zodiac(self):
+        '''
+        Returns the zodiac animal of the year, based on the Chinese zodiac. 
+        '''
         return zodiac[self._branch]
 
     @property
     def stem(self):
+        '''
+        Returns the heavenly stem, AKA the tian-gan, of the year.
+        '''
         return heavenly_stems[self._stem]
 
     @property
     def branch(self):
+        '''
+        Returns the earthly branch, AKA the di-zhi, of the year
+        '''
         return earthly_branches[self._branch]
 
     @classmethod
     def from_gregorian(cls, year, month, day):
+        '''
+        Returns an instance of ChineseDate, based on the given date in the Gregorian
+        calendar.
+
+        The year parameter must be within [datetime.MINYEAR, datetime.MAXYEAR]
+        '''
         gdate = date(year, month, day)
         cdate = chinese_from_gregorian(gdate)
         return cls(gdate, cdate)
 
     @classmethod
-    def from_chinese(cls, chinese_year, chinese_month, chinese_day, is_leap):
-        cdate = CDate(chinese_year, chinese_month, chinese_day, is_leap)
+    def from_chinese(cls, chinese_year, chinese_month, chinese_day, is_leap_month):
+        '''
+        Returns an instance of ChineseDate, based on the given date in the Chinese 
+        calendar.
+
+        A ChineseDate is represented by 
+        - Year: Same as the Grogorian year.
+        - Month: An integer between 1 and 12 inclusive.
+        - Day: An integer between 1 and 30 inclusive.
+        - is_leap_month: A boolean representing whether the date is in the leap 
+          month. In the Chinese calendar, the leap month shares the same number as 
+          the original month. For example, the year 2009 has the following months:
+          1, 2, 3, 4, 5, 5*, 6, 7, 8, 9, 10, 11, 12; 5* being the leap month.
+        '''
+        cdate = CDate(chinese_year, chinese_month, chinese_day, is_leap_month)
         gdate = gregorian_from_chinese(cdate)
         return cls(gdate, cdate)
 
