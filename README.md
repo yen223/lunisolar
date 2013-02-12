@@ -74,7 +74,7 @@ The add, subtract, and comparison operators for `ChineseDate` is similar to that
 
 Installation
 --------------
-`pip install lunisolar`
+    pip install lunisolar
 
 
 FAQ
