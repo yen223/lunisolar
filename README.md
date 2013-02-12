@@ -95,6 +95,10 @@ Historically, the Chinese calendar doesn't have a single epoch - instead it reco
 
 There is a lot of confusion among scholars about which year should be taken as the reference point. As such, it is more practical to use the Gregorian year to represent the year.
 
+Notes
+----------
+Lunisolar can handle dates ranging from 1/1/1 to 31/12/9999 (21/11/0 - 3/12/9999 in the Chinese calendar). Future dates can't be guaranteed to be accurate.
+
 References
 ----------
 [The Mathematics of the Chinese Calendar][1]
