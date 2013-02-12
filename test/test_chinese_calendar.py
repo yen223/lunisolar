@@ -83,3 +83,8 @@ class LunarDateTestCases(unittest.TestCase):
         self.assertFalse(later == earlier)
         self.assertTrue(later != earlier)
 
+    def test_show_full_zodiac_name(self):
+        self.assertEqual(self.moon_landing.show_zodiac_full(), 
+                "Year of the Earth Rooster")
+        self.assertEqual(self.july_fourth.show_zodiac_full(show_element=False),
+                "Year of the Ox")

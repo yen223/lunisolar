@@ -7,7 +7,7 @@ Based on the works of `Helmer Aslaksen`_. Built on top of `PyCalCal`_, the Pytho
 
 Usage
 -----
-Initializing a Chinese date:
+Initializing a Chinese date::
 
     >>> from lunisolar import ChineseDate
     >>> mid_autumn = ChineseDate.from_chinese(chinese_year=2013, 
@@ -19,18 +19,18 @@ Initializing a Chinese date:
     >>> mid_autumn.gregorian_date
     datetime.date(2013, 9, 19)
 
-A Chinese date object can be initialized from a Gregorian (western) date:
+A Chinese date object can be initialized from a Gregorian (western) date::
 
     >>> from lunisolar import ChineseDate
     >>> moon_landing = ChineseDate.from_gregorian(1969, 7, 20)
     >>> moon_landing
     chinese_date(year=1969, month=6, day=7, is_leap_month=False)
 
-The ChineseDate class shares the same constructors as datetime.date:
+The ChineseDate class shares the same constructors as datetime.date::
 
     >>> ChineseDate.today()
     chinese_date(year=2012, month=12, day=29, is_leap_month=False)
-    
+
     >>> timestamp = 1360414893.724195
     >>> ChineseDate.fromtimestamp(timestamp)
     chinese_date(year=2012, month=12, day=29, is_leap_month=False)
@@ -39,7 +39,8 @@ The ChineseDate class shares the same constructors as datetime.date:
     >>> ChineseDate.fromordinal(ordinal)
     chinese_date(year=2012, month=12, day=29, is_leap_month=False)
 
-Retrieving properties of the Chinese calendar:
+
+Retrieving properties of the Chinese calendar::
 
     >>> moon_landing = ChineseDate.from_gregorian(1969, 7, 20)
     >>> moon_landing.year
@@ -60,6 +61,8 @@ Retrieving properties of the Chinese calendar:
     you
 
 The add, subtract, and comparison operators for `ChineseDate` is similar to that of the `datetime.date` object. For subtraction and comparison, ChineseDate and datetime.date can be used interchangeably.
+
+::
 
     >>> from datetime import timedelta
     >>> cdate = ChineseDate.from_gregorian(1969, 7, 20)

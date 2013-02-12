@@ -1,2 +1,2 @@
-include *.txt
-include LICENSE README.md
+include README.txt
+include LICENSE README.md README.rst
