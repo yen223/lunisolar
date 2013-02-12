@@ -5,6 +5,10 @@ Lunisolar is a Python package for handling Chinese calendars.
 
 Based on the works of [Helmer Aslaksen][1]. Built on top of [PyCalCal][2], the Python implementation of Calendrica 3.0, a set of calendar-related algorithms as described in [Dershowitz and Reingold’s book “Calendrical Calculations”](http://www.amazon.com/Calendrical-Calculations-Millennium-Edward-Reingold/dp/0521777526).
 
+Installation
+--------------
+    pip install lunisolar
+
 Usage
 ----
 Initializing a Chinese date:
@@ -75,7 +79,6 @@ The add, subtract, and comparison operators for `ChineseDate` is similar to that
 Installation
 --------------
     pip install lunisolar
-
 
 FAQ
 ----------
