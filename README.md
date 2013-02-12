@@ -97,7 +97,7 @@ There is a lot of confusion among scholars about which year should be taken as t
 
 Notes
 ----------
-Lunisolar can handle dates ranging from 1/1/1 to 31/12/9999 (21/11/0 - 3/12/9999 in the Chinese calendar).
+Lunisolar can handle dates ranging from 1/1/1 to 31/12/9999 (21st day, 11th month, 0th year - 3rd day, 12th month, 9999th year in the Chinese calendar).
 
 References
 ----------
