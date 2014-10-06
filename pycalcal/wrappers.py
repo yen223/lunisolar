@@ -45,5 +45,9 @@ def get_stem(cdate):
 def is_valid_chinese_date(cdate):
     pcc_cdate = _pcc_chinese_from_tuple(cdate)
     cdate2 = chinese_from_fixed(fixed_from_chinese(pcc_cdate))
+    if cdate2[0] == pcc_cdate[0] - 1 and \
+        cdate2[1] == 60 and \
+        pcc_cdate[1] == 0:
+            return cdate2[2:] == pcc_cdate[2:]
     return cdate2 == pcc_cdate
 

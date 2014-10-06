@@ -160,7 +160,7 @@ class ChineseDate():
                      chinese_year,
                      chinese_month,
                      chinese_day,
-                     is_leap_month):
+                     is_leap_month=False):
         '''
         Returns an instance of ChineseDate, based on the given date in the
         Chinese calendar.
